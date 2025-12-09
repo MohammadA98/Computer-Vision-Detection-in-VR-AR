@@ -1,0 +1,17 @@
+# Training Requirements
+# Install with: pip install -r requirements-train.txt
+
+# Core dependencies (same as API)
+torch==2.5.1
+torchvision==0.20.1
+ultralytics==8.1.0
+pillow==10.2.0
+numpy==1.26.3
+
+# Training-specific
+matplotlib>=3.3.0
+pandas>=1.1.4
+seaborn>=0.11.0
+
+# Optional: For Roboflow integration
+roboflow

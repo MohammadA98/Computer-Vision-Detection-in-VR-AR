@@ -1,0 +1,30 @@
+services:
+  vr-detector:
+    build: .
+    container_name: vr-3d-object-detector
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TORCH_FORCE_WEIGHTS_ONLY_LOAD=0
+      # Dual detector mode: COCO (80 classes) + Custom (5 VR classes)
+      - MODEL_PATH=yolov8n.pt
+      - CUSTOM_MODEL_PATH=/app/models/custom_model.pt
+      - CONFIDENCE_THRESHOLD=0.4
+    volumes:
+      # Mount custom trained model for VR objects (updated to vr-custom-simple4 with 8 classes)
+      - ./runs/train/vr-custom-simple4/weights/best.pt:/app/models/custom_model.pt
+      # Optional: Mount app for development (hot reload)
+      # - ./app:/app/app
+      # Cache YOLO models to avoid re-downloading
+      - yolo-models:/root/.cache/ultralytics
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  yolo-models:

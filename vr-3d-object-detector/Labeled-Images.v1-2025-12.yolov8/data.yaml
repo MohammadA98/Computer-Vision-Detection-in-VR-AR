@@ -1,0 +1,22 @@
+train: /Users/issaennab/dev/work/workspace/python/USD/vr-3d-object-detector/Labeled-Images.v1-2025-12.yolov8/train/images
+val: /Users/issaennab/dev/work/workspace/python/USD/vr-3d-object-detector/Labeled-Images.v1-2025-12.yolov8/train/images
+
+nc: 8
+names:
+  [
+    "Barrel",
+    "Construction Pylon",
+    "Equipments",
+    "Gym Equipments",
+    "House",
+    "Pool",
+    "Toys",
+    "Trees",
+  ]
+
+roboflow:
+  workspace: vr3dobjectdetector
+  project: my-first-project-0rte1
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/vr3dobjectdetector/my-first-project-0rte1/dataset/1
