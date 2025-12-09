@@ -95,7 +95,7 @@ YOLO-based object detection API for Unity VR screenshots. Detects objects in vir
 - 🔥 YOLOv8 Nano model (fast inference ~50-200ms)
 - 🐳 Docker support with docker-compose
 - 📦 Base64 image input for seamless Unity integration
-- 🎨 Returns bounding boxes with confidence scores
+- 🎨 Returns detected objects text with confidence scores
 
 #### Quick Start
 
@@ -194,8 +194,7 @@ cd QuickDraw-VR
 
 - **Right Trigger**: Draw
 - **Y Button**: Skip word
-- **B Button**: Clear drawing
-- **Left Thumbstick**: Move (if locomotion enabled)
+- **X Button**: Clear drawing
 
 ---
 
